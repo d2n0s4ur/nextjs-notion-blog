@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import * as types from '../../lib/types'
+import { SearchParams } from '@texonom/ntypes'
+
 import { search } from '../../lib/notion'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -8,7 +9,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(405).send({ error: 'method not allowed' })
   }
 
-  const searchParams: types.SearchParams = req.body
+  const searchParams: SearchParams = req.body
 
   console.log('<<< lambda search-notion', searchParams)
   const results = await search(searchParams)

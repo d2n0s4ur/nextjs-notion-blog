@@ -1,4 +1,6 @@
-import { ExtendedRecordMap, SearchParams, SearchResults } from 'notion-types'
+import { NotionAPI } from '@texonom/nclient'
+import { SearchParams, SearchResults } from '@texonom/ntypes'
+import { ExtendedRecordMap } from 'notion-types'
 import { mergeRecordMaps } from 'notion-utils'
 import pMap from 'p-map'
 import pMemoize from 'p-memoize'
@@ -64,5 +66,8 @@ export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
 }
 
 export async function search(params: SearchParams): Promise<SearchResults> {
-  return notion.search(params)
+  const api = new NotionAPI();
+
+  return api.search(params);
+  // return notion.search(params)
 }

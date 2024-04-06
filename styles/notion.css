@@ -18,7 +18,7 @@
   max-width: var(--notion-max-aside-width);
 }
 
-.notion-page-content-inner {
+.notion-page-content-has-aside > .notion-page-content-inner {
   max-width: calc(var(--notion-max-width) - var(--notion-max-aside-width)) !important;
 }
 
@@ -65,7 +65,7 @@
 }
 
 .notion-gallery-grid {
-  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-gap: 16px;
   gap: 16px;
   row-gap: 48px;
