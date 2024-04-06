@@ -1,13 +1,16 @@
 import * as React from 'react'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
+import Script from 'next/script'
 
 import { IconContext } from '@react-icons/all-files'
+
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GTAG_ID || ''
 
 export default class MyDocument extends Document {
   render() {
     return (
       <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
-        <Html lang='en'>
+        <Html lang='ko'>
           <Head>
             <link rel='shortcut icon' href='/favicon.ico' />
             <link
@@ -18,8 +21,24 @@ export default class MyDocument extends Document {
             />
 
             <link rel='manifest' href='/manifest.json' />
-          </Head>
 
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                                window.dataLayer = window.dataLayer || [];
+                                function gtag(){dataLayer.push(arguments);}
+                                gtag('js', new Date());
+                                gtag('config', '${GA_MEASUREMENT_ID}', {
+                                page_path: window.location.pathname,
+                                });
+                            `
+              }}
+            />
+          </Head>
           <body>
             <script
               dangerouslySetInnerHTML={{
