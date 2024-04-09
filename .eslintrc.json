@@ -23,5 +23,6 @@
     "@typescript-eslint/no-non-null-assertion": 0,
     "@typescript-eslint/no-unused-vars": 2,
     "react/prop-types": 0
-  }
+  },
+  "ignorePatterns": ["node_modules/", "packages"] // for dev(not published)
 }
