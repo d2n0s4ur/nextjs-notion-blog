@@ -5,13 +5,13 @@ import format from 'date-fns/format/index.js'
 import formatNumber from 'format-number'
 import { FormulaResult } from 'notion-types'
 
-import { Checkbox } from 'react-notion-x/build/components/checkbox'
-import { GracefulImage } from 'react-notion-x/build/components/graceful-image'
-import { PageTitle } from 'react-notion-x/build/components/page-title'
-import { Text } from 'react-notion-x/build/components/text'
-import { useNotionContext } from 'react-notion-x/build/context'
-import { cs } from 'react-notion-x'
-import { evalFormula } from 'react-notion-x/build/third-party/eval-formula'
+import { Checkbox } from '../components/checkbox'
+import { GracefulImage } from '../components/graceful-image'
+import { PageTitle } from '../components/page-title'
+import { Text } from '../components/text'
+import { useNotionContext } from '../context'
+import { cs } from '../utils'
+import { evalFormula } from './eval-formula'
 
 export interface IPropertyProps {
   propertyId?: string
@@ -101,7 +101,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
         return content
       },
     [block?.properties, collection?.schema, schema]
-  ) as () => React.ReactNode
+  )
 
   const renderTitleValue = React.useMemo(
     () =>
@@ -327,44 +327,44 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
         content = components.propertyTitleValue(props, renderTitleValue)
         break
 
-      // case 'status': {
-      //   const value = data[0][0] || ''
+      case 'status': {
+        const value = data[0][0] || ''
 
-      //   const option = schema.options?.find((option) => value === option.value)
+        const option = schema.options?.find((option) => value === option.value)
 
-      //   const color = option?.color || 'default-inferred'
+        const color = option?.color || 'default-inferred'
 
-      //   content = components.propertySelectValue(
-      //     {
-      //       ...props,
-      //       value,
-      //       option,
-      //       color
-      //     },
-      //     () => (
-      //       <div
-      //         className={cs(
-      //           `notion-property-${schema.type}-item`,
-      //           color && `notion-item-${color}`
-      //         )}
-      //       >
-      //         <span
-      //           className={cs(`notion-item-bullet-${color}`)}
-      //           style={{
-      //             marginRight: '5px',
-      //             borderRadius: '100%',
-      //             height: '8px',
-      //             width: '8px',
-      //             display: 'inline-flex',
-      //             flexShrink: 0
-      //           }}
-      //         />
-      //         {value}
-      //       </div>
-      //     )
-      //   )
-      //   break
-      // }
+        content = components.propertySelectValue(
+          {
+            ...props,
+            value,
+            option,
+            color
+          },
+          () => (
+            <div
+              className={cs(
+                `notion-property-${schema.type}-item`,
+                color && `notion-item-${color}`
+              )}
+            >
+              <span
+                className={cs(`notion-item-bullet-${color}`)}
+                style={{
+                  marginRight: '5px',
+                  borderRadius: '100%',
+                  height: '8px',
+                  width: '8px',
+                  display: 'inline-flex',
+                  flexShrink: 0
+                }}
+              />
+              {value}
+            </div>
+          )
+        )
+        break
+      }
 
       case 'select':
       // intentional fallthrough

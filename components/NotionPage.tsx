@@ -28,6 +28,8 @@ import { PageAside } from './PageAside'
 import { PageHead } from './PageHead'
 import styles from './styles.module.css'
 
+import { Property } from 'packages/react-notion-x/third-party/property'
+
 // -----------------------------------------------------------------------------
 // dynamic imports for optional components
 // -----------------------------------------------------------------------------
@@ -162,6 +164,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
       Modal,
       Tweet,
       Header: NotionPageHeader,
+      Property,
       propertyLastEditedTimeValue,
       propertyTextValue,
       propertyDateValue
