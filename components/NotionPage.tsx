@@ -118,7 +118,7 @@ const propertyDateValue = (
   { data, schema, pageHeader },
   defaultFn: () => React.ReactNode
 ) => {
-  if (pageHeader && schema?.name?.toLowerCase() === 'published') {
+  if (pageHeader && schema?.name?.toLowerCase() === '작성일') {
     const publishDate = data?.[0]?.[1]?.[0]?.[1]?.start_date
 
     if (publishDate) {
@@ -135,7 +135,7 @@ const propertyTextValue = (
   { schema, pageHeader },
   defaultFn: () => React.ReactNode
 ) => {
-  if (pageHeader && schema?.name?.toLowerCase() === 'author') {
+  if (pageHeader && schema?.name?.toLowerCase() === 'person') {
     return <b>{defaultFn()}</b>
   }
 

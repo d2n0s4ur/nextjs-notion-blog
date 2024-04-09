@@ -14,7 +14,7 @@ export default siteConfig({
   author: 'd2n0s4ur',
 
   // open graph metadata (optional)
-  description: 'd2n0s4ur\'s dev blog',
+  description: "d2n0s4ur's dev blog",
 
   // social usernames (optional)
   // twitter: 'transitive_bs',
@@ -61,5 +61,8 @@ export default siteConfig({
     //   title: 'Contact',
     //   pageId: '6a29ebcb935a4f0689fe661ab5f3b8d1'
     // }
-  ]
+  ],
+
+  // custom Collections for display
+  displayCollections: ['작성자', '카테고리', '태그', '작성일']
 })

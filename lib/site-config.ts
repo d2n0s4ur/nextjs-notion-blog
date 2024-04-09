@@ -33,6 +33,8 @@ export interface SiteConfig {
 
   navigationStyle?: types.NavigationStyle
   navigationLinks?: Array<NavigationLink>
+
+  displayCollections?: Array<string>
 }
 
 export interface NavigationLink {

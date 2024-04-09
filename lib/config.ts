@@ -112,6 +112,12 @@ export const navigationLinks: Array<NavigationLink | null> = getSiteConfig(
 // Optional site search
 export const isSearchEnabled: boolean = getSiteConfig('isSearchEnabled', true)
 
+// Custom collections for display
+export const displayCollections: Array<string> = getSiteConfig(
+  'displayCollections',
+  []
+)
+
 // ----------------------------------------------------------------------------
 
 // Optional redis instance for persisting preview images

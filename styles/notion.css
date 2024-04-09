@@ -37,7 +37,8 @@
 }
 
 .notion-text {
-  padding: 0.5em 2px;
+  /* padding: 0.5em 2px; */
+  padding: 0.2em 2px;
 }
 
 .notion-asset-caption {
@@ -76,7 +77,8 @@
 }
 
 .notion-gallery-grid .notion-page-title-text {
-  font-size: 2em;
+  font-size: 1.6em;
+  font-weight: 700;
   white-space: unset;
 }
 
@@ -181,6 +183,7 @@
 .notion-title {
   display: block;
   text-align: left;
+  font-weight: 700;
 }
 
 .notion-collection-row {
