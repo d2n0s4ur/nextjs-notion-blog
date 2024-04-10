@@ -89,6 +89,7 @@ export class SearchDialog extends React.Component<{
                 {hasQuery && searchResult && (
                   <>
                     {searchResult.results.length ? (
+                      // @ts-ignore
                       <NotionContextProvider
                         {...ctx}
                         recordMap={searchResult.recordMap}

@@ -18,7 +18,8 @@ export type FormulaValueType =
   | 'date'
   | FormulaConstantType
 
-export type FormulaResult = string | number | boolean | Date
+// export type FormulaResult = string | number | boolean | Date
+export type FormulaResult = any
 export type FormulaResultType =
   | 'text'
   | 'number'

@@ -12,7 +12,7 @@ import 'prismjs/themes/prism-coy.css'
 // this might be better for dark mode
 import 'prismjs/themes/prism-okaidia.css'
 // core styles shared by all of react-notion-x (required)
-import 'react-notion-x/src/styles.css'
+import 'react-notion-x/styles.css'
 import 'styles/global.css'
 // global style overrides for notion
 import 'styles/notion.css'

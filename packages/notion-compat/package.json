@@ -1,0 +1,13 @@
+{
+  "name": "notion-compat",
+  "version": "6.16.1",
+  "dependencies": {
+    "notion-types": "^6.16.1",
+    "notion-utils": "^6.16.1",
+    "p-queue": "^7.2.0"
+  },
+  "devDependencies": {
+    "@notionhq/client": "^1.0.4",
+    "notion-client": "^6.16.1"
+  }
+}

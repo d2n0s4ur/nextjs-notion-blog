@@ -48,6 +48,8 @@ export interface PartialNotionContext {
   recordMap?: ExtendedRecordMap
   components?: Partial<NotionComponents>
 
+  children?: React.ReactNode
+
   mapPageUrl?: MapPageUrlFn
   mapImageUrl?: MapImageUrlFn
   searchNotion?: SearchNotionFn
