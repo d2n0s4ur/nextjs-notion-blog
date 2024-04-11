@@ -2,7 +2,6 @@ import * as React from 'react'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 
 import { IconContext } from '@react-icons/all-files'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GTAG_ID || ''
 
@@ -81,9 +80,7 @@ export default class MyDocument extends Document {
               }}
             />
             <Main />
-
             <NextScript />
-            <SpeedInsights />
           </body>
         </Html>
       </IconContext.Provider>
