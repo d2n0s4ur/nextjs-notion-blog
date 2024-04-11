@@ -721,8 +721,8 @@ svg.notion-page-icon {
 .notion-full-width {
   box-sizing: border-box;
   --notion-max-width: calc(min(1920px, 98vw));
-  padding-left: calc(min(96px, 8vw));
-  padding-right: calc(min(96px, 8vw));
+  /* padding-left: calc(min(96px, 8vw));
+  padding-right: calc(min(96px, 8vw)); */
 }
 
 .notion-small-text {

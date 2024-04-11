@@ -103,18 +103,18 @@ const Tweet = ({ id }: { id: string }) => {
   return <TweetEmbed tweetId={id} />
 }
 
-const propertyLastEditedTimeValue = (
-  { block, pageHeader },
-  defaultFn: () => React.ReactNode
-) => {
-  if (pageHeader && block?.last_edited_time) {
-    return `Last updated ${formatDate(block?.last_edited_time, {
-      month: 'long'
-    })}`
-  }
+// const propertyLastEditedTimeValue = (
+//   { block, pageHeader },
+//   defaultFn: () => React.ReactNode
+// ) => {
+//   if (pageHeader && block?.last_edited_time) {
+//     return `Last updated ${formatDate(block?.last_edited_time, {
+//       month: 'long'
+//     })}`
+//   }
 
-  return defaultFn()
-}
+//   return defaultFn()
+// }
 
 const propertyDateValue = (
   { data, schema, pageHeader },
@@ -165,7 +165,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
       Tweet,
       Header: NotionPageHeader,
       // Property,
-      propertyLastEditedTimeValue,
+      // propertyLastEditedTimeValue,
       propertyTextValue,
       propertyDateValue
     }),

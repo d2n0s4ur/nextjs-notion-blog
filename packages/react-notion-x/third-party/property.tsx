@@ -131,6 +131,58 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
     [block, data]
   )
 
+  const fetchUserData = (userId: string) => {
+    if (!userId) return
+    const url = `https://api.notion.com/v1/users/${userId}`
+    const response = fetch(url, {
+      headers: {
+        Authorization: `Bearer ${process.env.NOTION_API_KEY}`,
+        'Notion-Version': '2022-06-28'
+      }
+    }).then((res) => res.json())
+
+    return response
+  }
+
+  const renderCreatedByValue = React.useMemo(
+    () =>
+      function CreatedByProperty() {
+        // const userData = fetchUserData(props.block.created_by_id)
+        // console.log('userData', userData)
+        // const returnData = userData.then((data) => {
+        //   console.log('userData', data)
+        //   const userProfile = data.avatar_url
+        //   const userName = data.name
+
+        //   return (
+        //     <div className='notion-property-person'>
+        //       <GracefulImage
+        //         src={userProfile}
+        //         alt={userName}
+        //         className='notion-property-person-icon'
+        //       />
+        //       <Text value={[[userName]]} block={block} />
+        //     </div>
+        //   )
+        // })
+        const userProfile = `https://s3-us-west-2.amazonaws.com/public.notion-static.com/ef056ce0-6bbf-46f9-95e8-30d2711bcea0/profile.png`
+        const userName = 'd2n0s4ur'
+        return (
+          <div className='notion-property-createdby'>
+            <GracefulImage
+              src={userProfile}
+              alt={userName}
+              className='notion-property-person-icon'
+              width={20}
+              height={20}
+            />
+            <Text value={[[userName]]} block={block} />
+          </div>
+        )
+      },
+    [block, data]
+  )
+
   const renderFileValue = React.useMemo(
     () =>
       function FileProperty() {
@@ -287,7 +339,9 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
   const renderLastEditedTimeValue = React.useMemo(
     () =>
       function LastEditedTimeProperty() {
-        return format(new Date(block?.last_edited_time), 'MMM d, YYY hh:mm aa')
+        // customize formating as korean
+        // return format(new Date(block?.last_edited_time), 'YYYY MM dd, hh:mm aa')
+        return format(block?.last_edited_time, 'yyyy년 MM월 dd일')
       },
     [block?.last_edited_time]
   )
@@ -448,7 +502,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
 
       case 'created_by':
         // TODO
-        // console.log('created_by', schema, data)
+        content = components.propertyCreatedByValue(props, renderCreatedByValue)
         break
 
       case 'last_edited_by':

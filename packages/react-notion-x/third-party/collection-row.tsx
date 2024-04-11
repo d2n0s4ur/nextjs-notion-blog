@@ -53,24 +53,29 @@ export const CollectionRow: React.FC<{
   return (
     <div className={cs('notion-collection-row', className)}>
       <div className='notion-collection-row-body'>
-        {propertyIds.map((propertyId) => {
+        {propertyIds.map((propertyId, _i) => {
           const schema = schemas[propertyId]
 
           return (
-            <div className='notion-collection-row-property' key={propertyId}>
-              <CollectionColumnTitle schema={schema} />
+            <>
+              <div className='notion-collection-row-property' key={propertyId}>
+                <CollectionColumnTitle schema={schema} />
 
-              <div className='notion-collection-row-value'>
-                <Property
-                  schema={schema}
-                  data={block.properties?.[propertyId]}
-                  propertyId={propertyId}
-                  block={block}
-                  collection={collection}
-                  pageHeader={pageHeader}
-                />
+                <div className='notion-collection-row-value'>
+                  <Property
+                    schema={schema}
+                    data={block.properties?.[propertyId]}
+                    propertyId={propertyId}
+                    block={block}
+                    collection={collection}
+                    pageHeader={pageHeader}
+                  />
+                </div>
               </div>
-            </div>
+              {_i < propertyIds.length - 1 && (
+                <div className='notion-collection-row-divider' key={`${propertyId}_div_${_i}`} />
+              )}
+            </>
           )
         })}
       </div>

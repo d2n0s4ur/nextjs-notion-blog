@@ -133,6 +133,7 @@ const defaultComponents: NotionComponents = {
   propertyLastEditedTimeValue: dummyOverrideFn,
   propertyCreatedTimeValue: dummyOverrideFn,
   propertyDateValue: dummyOverrideFn,
+  propertyCreatedByValue: dummyOverrideFn,
 
   Pdf: dummyComponent('Pdf'),
   Tweet: dummyComponent('Tweet'),

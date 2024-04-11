@@ -46,7 +46,7 @@
 
 .footer {
   width: 100%;
-  max-width: 1368px;
+  max-width: 1368px !important;
   margin: auto auto 0;
   padding: 8px;
 
