@@ -48,7 +48,7 @@
   color: rgba(209, 213, 219, 1);
 }
 .token.punctuation {
-  color: rgba(55, 65, 81, 1);
+  color: #777e7f;
 }
 .dark-mode .token.punctuation {
   color: rgba(209, 213, 219, 1);
@@ -93,7 +93,7 @@
 }
 code[class*='language-'],
 pre[class*='language-'] {
-  color: rgba(31, 41, 55, 1);
+  color: #d0d0d0;
 }
 .dark-mode code[class*='language-'],
 .dark-mode pre[class*='language-'] {
