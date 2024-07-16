@@ -165,7 +165,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
         //     </div>
         //   )
         // })
-        const userProfile = `https://s3-us-west-2.amazonaws.com/public.notion-static.com/ef056ce0-6bbf-46f9-95e8-30d2711bcea0/profile.png`
+        const userProfile = `https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F68f18017-64af-481d-825a-db49f1801cb6%2F4960602b-7bf0-494c-9a13-7f6790710247%2F24205218.png?table=block&id=3a89906c-161f-4844-bbab-fea8e843cb6f&spaceId=68f18017-64af-481d-825a-db49f1801cb6&width=250&userId=b4e43a7f-b449-4754-842b-afb4c40c97b1&cache=v2`
         const userName = 'd2n0s4ur'
         return (
           <div className='notion-property-createdby'>
